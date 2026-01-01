@@ -266,14 +266,17 @@ export default async function HomePage() {
                   ? project.techStack
                   : [];
 
+                // Normalize image URL - fix double slashes that break Next.js Image optimization
+                const imageUrl = thumbnail?.url?.replace(/([^:]\/)\/+/g, '$1') || null;
+
                 return (
                   <Link key={project.id} href={`/projects/${project.slug}`}>
                     <Card className="h-full group overflow-hidden border border-gray-200 hover:border-gray-300 transition-all bg-white shadow-sm hover:shadow-md">
-                      {thumbnail?.url && (
+                      {imageUrl && (
                         <div className="relative w-full h-48 overflow-hidden bg-gray-100">
                           <Image
-                            src={thumbnail.url}
-                            alt={thumbnail.alt || project.title}
+                            src={imageUrl}
+                            alt={thumbnail?.alt || project.title}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-300"
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
