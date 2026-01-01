@@ -8,9 +8,9 @@ export const Projects: CollectionConfig = {
   },
   access: {
     read: () => true, // All projects are public
-    create: ({ req: { user } }) => !!user, // Only authenticated users can create
-    update: ({ req: { user } }) => !!user, // Only authenticated users can update
-    delete: ({ req: { user } }) => !!user, // Only authenticated users can delete
+    create: ({ req }) => Boolean(req.user), // Only authenticated users can create
+    update: ({ req }) => Boolean(req.user), // Only authenticated users can update
+    delete: ({ req }) => Boolean(req.user), // Only authenticated users can delete
   },
   fields: [
     {

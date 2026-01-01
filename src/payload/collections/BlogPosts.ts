@@ -7,19 +7,19 @@ export const BlogPosts: CollectionConfig = {
     defaultColumns: ['title', 'status', 'publishedAt'],
   },
   access: {
-    read: ({ req: { user } }) => {
+    read: ({ req }) => {
       // Published posts are publicly accessible
       // Drafts are only accessible to authenticated users
-      if (user) return true
+      if (req.user) return true
       return {
         status: {
           equals: 'published',
         },
       }
     },
-    create: ({ req: { user } }) => !!user, // Only authenticated users can create
-    update: ({ req: { user } }) => !!user, // Only authenticated users can update
-    delete: ({ req: { user } }) => !!user, // Only authenticated users can delete
+    create: ({ req }) => Boolean(req.user), // Only authenticated users can create
+    update: ({ req }) => Boolean(req.user), // Only authenticated users can update
+    delete: ({ req }) => Boolean(req.user), // Only authenticated users can delete
   },
   versions: {
     drafts: true,
