@@ -20,20 +20,21 @@ export function RelatedPosts({ posts }: RelatedPostsProps) {
           const featuredImage = post.featuredImage as Media | null
           const categories = Array.isArray(post.categories) ? post.categories : []
 
+          // Normalize image URL - fix double slashes that break Next.js Image optimization
+          const imageUrl = featuredImage?.url?.replace(/([^:]\/)\/+/g, '$1') || null
+
           return (
             <Link key={post.id} href={`/blog/${post.slug}`}>
               <Card className="h-full group overflow-hidden border border-gray-200 hover:border-gray-300 transition-all bg-white shadow-sm hover:shadow-md">
                 {/* Featured Image */}
-                {featuredImage?.url && (
+                {imageUrl && (
                   <div className="relative w-full h-40 overflow-hidden bg-gray-100">
                     <Image
-                      src={featuredImage.url}
-                      alt={featuredImage.alt || post.title}
+                      src={imageUrl}
+                      alt={featuredImage?.alt || post.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      placeholder="blur"
-                      blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAwIiBoZWlnaHQ9IjQ3NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
                       loading="lazy"
                     />
                   </div>

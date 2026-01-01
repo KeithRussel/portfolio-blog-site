@@ -129,6 +129,9 @@ export default async function ProjectDetailPage({
   const techStack = Array.isArray(project.techStack) ? project.techStack : []
   const categories = Array.isArray(project.categories) ? project.categories : []
 
+  // Normalize thumbnail URL - fix double slashes
+  const thumbnailUrl = thumbnail?.url?.replace(/([^:]\/)\/+/g, '$1') || null
+
   // Check if project has "wordpress" category
   const hasWordPressCategory = categories.some((cat) => {
     const category = typeof cat === 'object' && 'slug' in cat ? cat : null
@@ -182,18 +185,16 @@ export default async function ProjectDetailPage({
         {/* Project Detail */}
         <div className="max-w-4xl mx-auto">
           {/* Thumbnail */}
-          {thumbnail?.url && (
+          {thumbnailUrl && (
             <FadeIn delay={0.1}>
               <div className="relative w-full h-125 rounded-lg overflow-hidden mb-8 bg-gray-100">
                 <Image
-                  src={thumbnail.url}
-                  alt={thumbnail.alt || project.title}
+                  src={thumbnailUrl}
+                  alt={thumbnail?.alt || project.title}
                   fill
                   className="object-cover"
                   priority
                   sizes="(max-width: 1024px) 100vw, 1024px"
-                  placeholder="blur"
-                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAwIiBoZWlnaHQ9IjQ3NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
                 />
               </div>
             </FadeIn>
@@ -280,10 +281,12 @@ export default async function ProjectDetailPage({
                       const image = typeof item === 'object' && 'image' in item
                         ? (item.image as Media | null)
                         : null
-                      return image?.url
+                      // Normalize gallery image URL - fix double slashes
+                      const imageUrl = image?.url?.replace(/([^:]\/)\/+/g, '$1')
+                      return imageUrl
                         ? {
-                            url: image.url,
-                            alt: image.alt || `${project.title} gallery image`,
+                            url: imageUrl,
+                            alt: image?.alt || `${project.title} gallery image`,
                           }
                         : null
                     })
