@@ -34,6 +34,12 @@ export default buildConfig({
     importMap,
     disable: false, // Keep admin enabled
   },
+  csrf: [
+    // Allow requests from your production domain
+    'https://keithrussel.vercel.app',
+    // Allow localhost for development
+    'http://localhost:3000',
+  ],
   collections: [Users, BlogPosts, Projects, Media, Categories],
   editor: lexicalEditor({
     features: ({ defaultFeatures }) => [
