@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/breadcrumb'
 import { Badge } from '@/components/ui/badge'
 import { Calendar, ArrowLeft, Clock } from 'lucide-react'
-import type { Media } from '@/payload-types'
+import type { Media, Category } from '@/payload-types'
 import { RichText } from '@/components/RichText'
 import { calculateReadingTime, formatReadingTime } from '@/lib/reading-time'
 import { RelatedPosts } from '@/components/RelatedPosts'
@@ -176,7 +176,7 @@ export default async function BlogPostPage({
 
   // Fetch related posts based on shared categories
   const categoryIds = categories
-    .filter((cat): cat is { id: string } => typeof cat === 'object' && 'id' in cat)
+    .filter((cat): cat is Category => typeof cat === 'object' && cat !== null && 'id' in cat)
     .map((cat) => cat.id)
 
   const { docs: relatedPosts } = await payload.find({

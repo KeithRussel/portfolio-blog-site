@@ -7,7 +7,7 @@ import {
   FixedToolbarFeature,
   HeadingFeature,
   InlineCodeFeature,
-  BlockQuoteFeature,
+  BlockquoteFeature,
 } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { fileURLToPath } from 'url'

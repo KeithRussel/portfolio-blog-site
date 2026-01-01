@@ -87,7 +87,7 @@ function RenderNode({ node }: { node: SerializedLexicalNode }) {
 
     case 'heading':
       const tag = (node as any).tag || 'h2'
-      const HeadingTag = tag as keyof JSX.IntrinsicElements
+      const HeadingTag = tag as keyof React.JSX.IntrinsicElements
       const headingClasses: Record<string, string> = {
         h1: 'text-4xl font-bold mb-6 mt-8',
         h2: 'text-3xl font-bold mb-4 mt-6',
@@ -106,7 +106,7 @@ function RenderNode({ node }: { node: SerializedLexicalNode }) {
 
     case 'list':
       const listTag = (node as any).listType === 'number' ? 'ol' : 'ul'
-      const ListTag = listTag as keyof JSX.IntrinsicElements
+      const ListTag = listTag as keyof React.JSX.IntrinsicElements
       const listClass = listTag === 'ol' ? 'list-decimal ml-6 mb-4' : 'list-disc ml-6 mb-4'
       return (
         <ListTag className={listClass}>
