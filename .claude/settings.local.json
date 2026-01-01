@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node --version)",
+      "Bash(npx create-next-app:*)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(tree:*)",
+      "Bash(ls:*)",
+      "Bash(npx payload generate:importmap)",
+      "Bash(npm view:*)",
+      "Bash(npm run generate:types:*)",
+      "Bash(npm run dev:*)",
+      "Bash(taskkill:*)",
+      "Bash(powershell -Command \"if \\(Test-Path .next\\) { Remove-Item -Path .next -Recurse -Force }\")",
+      "Bash(timeout /t 2 /nobreak)",
+      "Bash(timeout /t 5 /nobreak)",
+      "Bash(ping:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(set NEXT_TELEMETRY_DISABLED=1)",
+      "Bash(start-dev.bat)",
+      "Bash(cmd /c start-dev.bat)",
+      "Bash(cmd /c \"set NEXT_TELEMETRY_DISABLED=1 && npm run dev\")",
+      "Bash(tasklist:*)",
+      "Bash(del \"D:\\\\Projects\\\\portfolio-blog-site\\\\src\\\\components\\\\ThemeProvider.tsx\" \"D:\\\\Projects\\\\portfolio-blog-site\\\\src\\\\components\\\\ThemeToggle.tsx\")",
+      "Bash(dir:*)",
+      "Bash(npx shadcn:*)",
+      "Bash(if not exist \"public\\\\media\" mkdir publicmedia)",
+      "Bash(if not exist \"D:\\\\Projects\\\\portfolio-blog-site\\\\src\\\\app\\\\\\(frontend\\)\\\\contact\" mkdir \"D:\\\\Projects\\\\portfolio-blog-site\\\\src\\\\app\\\\\\(frontend\\)\\\\contact\")",
+      "Bash(del \"D:\\\\Projects\\\\portfolio-blog-site\\\\src\\\\components\\\\ThemeProvider.tsx\" \"D:\\\\Projects\\\\portfolio-blog-site\\\\src\\\\components\\\\ThemeToggle.tsx\" \"D:\\\\Projects\\\\portfolio-blog-site\\\\src\\\\components\\\\ThemeToggleWrapper.tsx\")"
+    ]
+  }
+}

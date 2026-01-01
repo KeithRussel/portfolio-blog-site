@@ -1,0 +1,59 @@
+{
+  "name": "portfolio-blog-site",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "payload": "payload",
+    "generate:types": "payload generate:types"
+  },
+  "keywords": [
+    "nextjs",
+    "portfolio",
+    "blog",
+    "payload-cms",
+    "typescript",
+    "tailwind"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "A production-ready hybrid Portfolio + Blog web app built with Next.js 15, Payload CMS v3, and TypeScript",
+  "dependencies": {
+    "@payloadcms/db-mongodb": "^3.69.0-canary.8",
+    "@payloadcms/next": "^3.69.0-canary.8",
+    "@payloadcms/richtext-lexical": "^3.69.0-canary.8",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/node": "^25.0.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.26",
+    "graphql": "^16.12.0",
+    "lucide-react": "^0.561.0",
+    "mongodb": "^7.0.0",
+    "next": "^15.4.10",
+    "payload": "^3.69.0-canary.8",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-icons": "^5.5.0",
+    "react-syntax-highlighter": "^16.1.0",
+    "resend": "^6.6.0",
+    "sharp": "^0.34.5",
+    "tailwind-merge": "^3.4.0",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "autoprefixer": "^10.4.23",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.0.10",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18"
+  }
+}
