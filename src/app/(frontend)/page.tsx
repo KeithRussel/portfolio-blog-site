@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Russel Maniacop - Web Developer & Code Hobbyist',
     description: 'I\'m a code hobbyist specializing in Web Development. Bringing designs into live website and webapp projects.',
-    images: ['/media/keith.jpg'],
+    images: ['/images/keith.jpg'],
   },
 };
 
@@ -107,7 +107,7 @@ export default async function HomePage() {
                 <FadeIn delay={0}>
                   <div className="relative w-32 h-32 rounded-full border-4 border-white shadow-xl overflow-hidden bg-gray-100">
                     <Image
-                      src="/media/keith.jpg"
+                      src="/images/keith.jpg"
                       alt="Russel Maniacop Profile"
                       fill
                       className="object-cover"

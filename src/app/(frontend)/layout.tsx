@@ -29,7 +29,7 @@ export default function RootLayout({
             <div className="flex items-center justify-between">
               <Link href="/" className="hover:opacity-70 transition-opacity">
                 <Image
-                  src="/media/K.jpg"
+                  src="/images/K.jpg"
                   alt="Logo"
                   width={40}
                   height={40}
