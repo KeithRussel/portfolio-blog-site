@@ -7,12 +7,11 @@ export const BlogPosts: CollectionConfig = {
     defaultColumns: ['title', 'status', 'publishedAt'],
   },
   access: {
-    read: () => true, // All posts are publicly readable
-    // For admin operations, allow all authenticated users
-    // The admin panel itself handles authentication
-    create: () => true,
-    update: () => true,
-    delete: () => true,
+    read: () => true, // Allow reading all posts (admin can see drafts, public sees published)
+    create: () => true, // Admin panel handles authentication
+    update: () => true, // Admin panel handles authentication
+    delete: () => true, // Admin panel handles authentication
+    readVersions: () => true, // Allow reading version history
   },
   versions: {
     drafts: true,
