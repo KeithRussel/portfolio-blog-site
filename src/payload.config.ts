@@ -9,6 +9,7 @@ import {
   InlineCodeFeature,
   BlockquoteFeature,
 } from '@payloadcms/richtext-lexical'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
@@ -81,4 +82,13 @@ export default buildConfig({
   }),
   sharp,
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
+  plugins: [
+    vercelBlobStorage({
+      enabled: true, // Enable Vercel Blob storage
+      collections: {
+        media: true, // Enable for media collection
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN || '',
+    }),
+  ],
 })
