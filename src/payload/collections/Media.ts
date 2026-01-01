@@ -4,6 +4,9 @@ export const Media: CollectionConfig = {
   slug: 'media',
   access: {
     read: () => true, // Public access for media files
+    create: ({ req: { user } }) => !!user, // Only authenticated users can upload
+    update: ({ req: { user } }) => !!user, // Only authenticated users can update
+    delete: ({ req: { user } }) => !!user, // Only authenticated users can delete
   },
   upload: {
     staticDir: 'media',

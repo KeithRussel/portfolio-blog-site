@@ -17,6 +17,9 @@ export const BlogPosts: CollectionConfig = {
         },
       }
     },
+    create: ({ req: { user } }) => !!user, // Only authenticated users can create
+    update: ({ req: { user } }) => !!user, // Only authenticated users can update
+    delete: ({ req: { user } }) => !!user, // Only authenticated users can delete
   },
   versions: {
     drafts: true,
