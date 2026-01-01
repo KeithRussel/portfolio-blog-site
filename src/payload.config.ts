@@ -84,7 +84,7 @@ export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
   plugins: [
     vercelBlobStorage({
-      enabled: true, // Enable Vercel Blob storage
+      enabled: !!process.env.BLOB_READ_WRITE_TOKEN, // Only enable if token exists
       collections: {
         media: true, // Enable for media collection
       },

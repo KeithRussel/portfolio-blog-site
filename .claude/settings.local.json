@@ -30,7 +30,8 @@
       "Bash(if not exist \"public\\\\media\" mkdir publicmedia)",
       "Bash(if not exist \"D:\\\\Projects\\\\portfolio-blog-site\\\\src\\\\app\\\\\\(frontend\\)\\\\contact\" mkdir \"D:\\\\Projects\\\\portfolio-blog-site\\\\src\\\\app\\\\\\(frontend\\)\\\\contact\")",
       "Bash(del \"D:\\\\Projects\\\\portfolio-blog-site\\\\src\\\\components\\\\ThemeProvider.tsx\" \"D:\\\\Projects\\\\portfolio-blog-site\\\\src\\\\components\\\\ThemeToggle.tsx\" \"D:\\\\Projects\\\\portfolio-blog-site\\\\src\\\\components\\\\ThemeToggleWrapper.tsx\")",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(if not exist \"public\\\\images\" mkdir publicimages)"
     ]
   }
 }
