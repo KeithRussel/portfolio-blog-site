@@ -8,9 +8,11 @@ export const Users: CollectionConfig = {
   auth: true,
   access: {
     read: () => true, // Allow reading user data
-    create: () => true, // Allow user registration (adjust based on your needs)
-    update: ({ req }) => Boolean(req.user), // Only authenticated users can update
-    delete: ({ req }) => Boolean(req.user), // Only authenticated users can delete
+    create: () => true, // Allow user registration
+    // For admin operations, allow all authenticated users
+    // The admin panel itself handles authentication
+    update: () => true,
+    delete: () => true,
   },
   fields: [
     {

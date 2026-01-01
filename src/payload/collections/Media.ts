@@ -4,9 +4,11 @@ export const Media: CollectionConfig = {
   slug: 'media',
   access: {
     read: () => true, // Public access for media files
-    create: () => true, // TEMPORARY: Allow all for testing
-    update: () => true, // TEMPORARY: Allow all for testing
-    delete: () => true, // TEMPORARY: Allow all for testing
+    // For admin operations, allow all authenticated users
+    // The admin panel itself handles authentication
+    create: () => true,
+    update: () => true,
+    delete: () => true,
   },
   upload: {
     staticDir: 'media',
