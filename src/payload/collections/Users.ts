@@ -6,6 +6,12 @@ export const Users: CollectionConfig = {
     useAsTitle: 'email',
   },
   auth: true,
+  access: {
+    read: () => true, // Allow reading user data
+    create: () => true, // Allow user registration (adjust based on your needs)
+    update: ({ req: { user } }) => !!user, // Only authenticated users can update
+    delete: ({ req: { user } }) => !!user, // Only authenticated users can delete
+  },
   fields: [
     {
       name: 'name',
