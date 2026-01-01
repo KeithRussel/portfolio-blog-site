@@ -140,8 +140,11 @@ export default async function BlogPostPage({
   const tags = Array.isArray(post.tags) ? post.tags : []
   const readingTime = calculateReadingTime(post.content as any)
 
+  // Normalize featured image URL - fix double slashes
+  const featuredImageUrl = featuredImage?.url?.replace(/([^:]\/)\/+/g, '$1') || null
+
   // Prepare JSON-LD structured data
-  const imageUrl = featuredImage?.url
+  const imageUrl = featuredImageUrl
   const absoluteImageUrl = imageUrl?.startsWith('http')
     ? imageUrl
     : imageUrl
@@ -236,12 +239,12 @@ export default async function BlogPostPage({
         {/* Article */}
         <article className="max-w-3xl mx-auto">
           {/* Featured Image with Zoom */}
-          {featuredImage?.url && (
+          {featuredImageUrl && (
             <FadeIn delay={0.1}>
               <div className="relative w-full h-96 rounded-lg overflow-hidden mb-8 bg-gray-100">
                 <ImageZoom
-                  src={featuredImage.url}
-                  alt={featuredImage.alt || post.title}
+                  src={featuredImageUrl}
+                  alt={featuredImage?.alt || post.title}
                   width={1200}
                   height={800}
                   priority
